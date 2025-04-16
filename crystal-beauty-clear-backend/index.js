@@ -5,10 +5,13 @@ import userRouter from './routes/userRouter.js';
 import jwt from "jsonwebtoken";
 import productRouter from './routes/productRouter.js';
 import orderRouter from './routes/orderRouter.js';
+import dotenv from 'dotenv';
+dotenv.config()
+
 const app = express();
 
 //mongodb+srv://Amantha:<db_password>@cluster0.ec3y1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-mongoose.connect("mongodb+srv://Amantha:123@cluster0.ec3y1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(
+mongoose.connect(process.env.MONGO_URL).then(
     ()=>{
         console.log("Connected to the database");
     }
